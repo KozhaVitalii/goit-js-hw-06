@@ -19,3 +19,30 @@
 // буде ім'ям властивості, а значення поля - значенням властивості. Для доступу до елементів форми 
 // використовуй властивість elements.
 // Виведи об'єкт із введеними даними в консоль і очисти значення полів форми методом reset.
+
+
+const formEl = document.querySelector('.login-form');
+
+formEl.addEventListener('submit', onFormSubmit);
+
+function onFormSubmit(event) {
+    event.preventDefault(); 
+    
+  const emailInput = formEl.elements.email;
+  const passwordInput = formEl.elements.password;
+    
+    if (emailInput.value === '' || passwordInput.value === '') 
+    {
+    alert('Будь ласка, заповніть всі поля форми');
+  }  else {
+    const formData = {
+      email: emailInput.value,
+      password: passwordInput.value
+    };
+
+    console.log(formData);
+
+    formEl.reset();
+  }
+    
+}
